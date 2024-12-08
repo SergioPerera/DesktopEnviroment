@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	/opt/kitty/bin/kitty
+	/usr/bin/kitty
 
 # Launch vsc
 super + shift + c 
@@ -121,13 +121,8 @@ super + shift + {Left,Down,Up,Right}
 
 # Custom resize
 super + alt + {h,j,k,l}
-  /home/serhack/.config/bspwm/scripts/bspwm_resize {west,south,north,east}
+  /home/sergio/.config/bspwm/scripts/bspwm_resize {west,south,north,east}
 
-# Change keyboard layout 
-super + shift + space 
-  /home/serhack/Documents/scripts/keyboard_layout_change.sh
-
-# Open custom workspace
-#super + shift + m
-#  /home/serhack/Documents/scripts/launch_apps.sh
-
+# Alternar entre US y ES con Super + Space
+super + space
+  ~/.config/sxhkd/scripts/swicth-kb.sh
