@@ -9,3 +9,6 @@ apt intall sxhkd
 
 rm rf ~/.config/sxhkd/
 cp -r ./sxhkd/ ~/.config
+
+#FEH
+apt install feh
