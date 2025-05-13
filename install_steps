@@ -14,7 +14,8 @@ cp -r ./sxhkd/ ~/.config
 apt install feh
 
 #PICOM
-apt install picom
+# Como puedas con el github de picom
+#apt install picom
 cp -r ./picom ~/.config
 
 #POLYBAR
@@ -29,8 +30,7 @@ apt install zsh
 cp -r ./zsh/ ~/.config
 
 #NVIM
-apt install nvim
-cp -r ./nvim/ ~/.config/
+# Con el github de neovim luego lazy vim y por último copia pega del directorio
 
 #KITTY
 apt install kitty
