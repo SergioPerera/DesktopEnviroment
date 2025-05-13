@@ -35,3 +35,6 @@ cp -r ./zsh/ ~/.config
 #KITTY
 apt install kitty
 cp -r ./kitty/ ~/.config
+
+# Hack Nerd Fonts
+
