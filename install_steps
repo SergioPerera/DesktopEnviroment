@@ -37,4 +37,14 @@ apt install kitty
 cp -r ./kitty/ ~/.config
 
 # Hack Nerd Fonts
+cp -r fonts /usr/local/share/
+
+#Install batcat
+apt install bat
+
+#Install LSD 
+apt install lsd
+
+#Powerlevel10k
+
 
