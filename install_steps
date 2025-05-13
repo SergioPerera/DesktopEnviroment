@@ -12,3 +12,26 @@ cp -r ./sxhkd/ ~/.config
 
 #FEH
 apt install feh
+
+#PICOM
+apt install picom
+cp -r ./picom ~/.config
+
+#POLYBAR
+apt install polybar
+cp -r ./polybar/ ~/.config
+
+#ROFI
+apt install rofi
+
+#ZSH
+apt install zsh
+cp -r ./zsh/ ~/.config
+
+#NVIM
+apt install nvim
+cp -r ./nvim/ ~/.config/
+
+#KITTY
+apt install kitty
+cp -r ./kitty/ ~/.config
