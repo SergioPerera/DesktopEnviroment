@@ -1,10 +1,10 @@
-#!/bin/bash
 #BSPWM
 apt install bspwm
 
 rm rf ~/.config/bspwm/
 cp -r ./bspwm/ ~/.config
 
+#SXHKD
 apt intall sxhkd
 
 rm rf ~/.config/sxhkd/
