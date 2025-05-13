@@ -20,6 +20,10 @@ cp -r ./picom ~/.config
 
 #POLYBAR
 apt install polybar
+git clone https://github.com/adi1090x/polybar-themes.git
+chmod 777 setup.sh
+./setup.sh
+Simple
 cp -r ./polybar/ ~/.config
 
 #ROFI
@@ -33,8 +37,8 @@ cp -r ./zsh/ ~/.config
 # Con el github de neovim luego lazy vim y por último copia pega del directorio
 
 #KITTY
-apt install kitty
-cp -r ./kitty/ ~/.config
+# Instalar desde su p'agina
+cp -r kitty ~/.config/
 
 # Hack Nerd Fonts
 cp -r fonts /usr/local/share/
