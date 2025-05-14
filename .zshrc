@@ -6,11 +6,26 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Created by newuser for 5.9
-source /home/serhack/powerlevel10k/powerlevel10k.zsh-theme
+source /home/odin/powerlevel10k/powerlevel10k.zsh-theme
 
 # ZSH Syntax Highlighting
 if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
 	source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+#ZSH AutoSuggestions
+if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+    source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 
+fi
+
+#ZSH AutoComplete 
+if [ -f /usr/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh ]; then
+    source /usr/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh 
+fi
+
+# Sudo plugin
+if [ -f /usr/share/zsh-sudo-plugin/sudo.plugin.zsh ]; then
+    source /usr/share/zsh-sudo-plugin/sudo.plugin.zsh 
 fi
 
 export PATH=/opt/kitty/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/opt/nvim/nvim-linux64/bin
