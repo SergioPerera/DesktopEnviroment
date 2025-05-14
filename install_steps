@@ -57,9 +57,8 @@ cp ./Powerlevel10k ~/
 #
 # Plugins de zsh
 sudo apt install zsh-autocomplete zsh-autosuggestions zsh-syntax-highlighting
+# Para el sudo hay que crear un directorio o copiar y pegar el que est'a en /usr/share/
 # Ahora hay que cambiar el color del autosuggesrions donde pone fg=8 cambiarlo a otro color fg=214 por ejemplo
-mdkir /usr/share/zsh-sudo
-cd /usr/share/zsh-sudo
 wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/refs/heads/master/plugins/sudo/sudo.plugin.zsh
 
 
