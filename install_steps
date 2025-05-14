@@ -14,7 +14,7 @@ cp -r ./sxhkd/ ~/.config
 apt install feh
 
 #PICOM
-# Como puedas con el github de picom
+# Como puedas con el github de picom para la latest release
 #apt install picom
 cp -r ./picom ~/.config
 
@@ -35,6 +35,7 @@ cp -r ./zsh/ ~/.config
 
 #NVIM
 # Con el github de neovim luego lazy vim y por último copia pega del directorio
+cp -r /.nvim ~/.config
 
 #KITTY
 # Instalar desde su p'agina
@@ -50,5 +51,15 @@ apt install bat
 apt install lsd
 
 #Powerlevel10k
+# Cambiar el usuario dentro de .zshrc 
+cp ./Powerlevel10k ~/
+
+#
+# Plugins de zsh
+sudo apt install zsh-autocomplete zsh-autosuggestions zsh-syntax-highlighting
+# Ahora hay que cambiar el color del autosuggesrions donde pone fg=8 cambiarlo a otro color fg=214 por ejemplo
+mdkir /usr/share/zsh-sudo
+cd /usr/share/zsh-sudo
+wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/refs/heads/master/plugins/sudo/sudo.plugin.zsh
 
 
