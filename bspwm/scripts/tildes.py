@@ -1,4 +1,3 @@
-
 from pynput import keyboard
 from pynput.keyboard import Controller, Key
 import time
