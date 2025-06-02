@@ -6,5 +6,5 @@ IP_FILE="$HOME/.config/polybar/ip_actual.txt"
 if [ ! -f "$IP_FILE" ]; then
   echo "No IP"
 else
-  echo " $(cat "$IP_FILE")"
+  echo "$(cat "$IP_FILE")"
 fi
