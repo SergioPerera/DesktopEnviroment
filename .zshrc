@@ -49,7 +49,7 @@ alias catn='batcat --style=plain'
 alias catnp='batcat --style=plain --paging=never'
 
 # ls
-alias ll='lsd -ltrha --group-dirs=first'
+alias ll='lsd -lhtra --group-dirs=first'
 alias la='lsd -a --group-dirs=first'
 alias l='lsd --group-dirs=first'
 alias lla='lsd -lha --group-dirs=first'
@@ -67,10 +67,6 @@ alias lpp='ssh usuario@10.6.128.52'
 alias cya='ssh usuario@10.6.130.163'
 alias bdd='ssh alu0101394503@exthost.etsii.ull.es'
 alias adbd='ssh usuario@10.6.130.99'
-alias linux1='ssh usuario@10.6.130.67'
-alias linux2='ssh usuario@10.6.131.195'
-alias windows='ssh usuario@10.6.129.151'
-
 
 # Xclip
 alias copy='xclip -selection clipboard'
@@ -78,10 +74,3 @@ alias copy='xclip -selection clipboard'
 # Github
 alias co='git checkout'
 
-# Grep
-alias grep='grep --color=auto'
-
-# Función para TargetToHack
-set-tth() {
-  ~/.config/polybar/forest/scripts/set_ip.sh "$1"
-}

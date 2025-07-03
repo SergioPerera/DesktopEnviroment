@@ -121,13 +121,8 @@ super + shift + {Left,Down,Up,Right}
 
 # Custom resize
 super + alt + {h,j,k,l}
-  /home/serhack/.config/bspwm/scripts/bspwm_resize {west,south,north,east}
+  ~/.config/bspwm/scripts/bspwm_resize {west,south,north,east}
 
-# Change keyboard layout 
-super + shift + space 
-  /home/serhack/Documents/scripts/keyboard_layout_change.sh
-
-# Open custom workspace
-#super + shift + m
-#  /home/serhack/Documents/scripts/launch_apps.sh
-
+# Open Explorer
+super + shift + e
+  /usr/bin/caja
