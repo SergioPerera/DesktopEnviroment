@@ -67,6 +67,8 @@ alias lpp='ssh usuario@10.6.128.52'
 alias cya='ssh usuario@10.6.130.163'
 alias bdd='ssh alu0101394503@exthost.etsii.ull.es'
 alias adbd='ssh usuario@10.6.130.99'
+alias linux1='ssh usuario@10.6.130.67'
+alias windows1='remmina -c ~/.local/share/remmina/group_rdp_windows1_10-6-129-151.remmina  > /dev/null 2>&1 & disown'
 
 # Xclip
 alias copy='xclip -selection clipboard'
