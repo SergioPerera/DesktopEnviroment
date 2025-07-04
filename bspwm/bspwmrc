@@ -23,3 +23,4 @@ bspc config focused_border_color "#84c0fc"
 bspc config border_width 3
 bspc config border_radius 0
 bash ~/.config/polybar/launch.sh --forest
+~/tilde_env/bin/python /home/odin/.config/bspwm/scripts/tildes.py &

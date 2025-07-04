@@ -1,71 +1,78 @@
-import keyboard
+from pynput import keyboard
+from pynput.keyboard import Controller, Key
+import time
 import subprocess
-import threading
 
+# Mapeo de combinaciones a caracteres acentuados
 accent_map = {
-    'a': 'á', 'e': 'é', 'i': 'í', 'o': 'ó', 'u': 'ú',
-    'A': 'Á', 'E': 'É', 'I': 'Í', 'O': 'Ó', 'U': 'Ú',
-    'n': 'ñ', 'N': 'Ñ',
+    "'a": "á", "'A": "Á",
+    "'e": "é", "'E": "É",
+    "'i": "í", "'I": "Í",
+    "'o": "ó", "'O": "Ó",
+    "'u": "ú", "'U": "Ú",
+    "'n": "ñ", "'N": "Ñ",
+    ":u": "ü", ":U": "Ü"
 }
 
-listening = False
-timer = None
-lock = threading.Lock()
+kb = Controller()
+buffer = []
+shift_pressed = False
 
-def write_text(text):
-    subprocess.run(['xdotool', 'type', '--delay', '0', text])
+# Verifica si Caps Lock está activado en Linux
+def is_capslock_on():
+    try:
+        output = subprocess.check_output(['xset', 'q']).decode()
+        for line in output.splitlines():
+            if 'Caps Lock:' in line:
+                return 'on' in line
+    except Exception as e:
+        print("Error checking Caps Lock:", e)
+    return False
 
-def backspace():
-    subprocess.run(['xdotool', 'key', 'BackSpace'])
+def process_buffer():
+    combo = ''.join(buffer)
+    if combo in accent_map:
+        for _ in range(2):
+            kb.press(Key.backspace)
+            kb.release(Key.backspace)
+            time.sleep(0.01)
+        kb.type(accent_map[combo])
+        buffer.clear()
 
-def timeout_no_next_char():
-    global listening, timer
-    with lock:
-        listening = False
-        timer = None
-        # No next char pressed, so leave the ' as is
+def on_press(key):
+    global buffer, shift_pressed
 
-def on_press(event):
-    global listening, timer
-    with lock:
-        if listening:
-            # Cancel timer porque ya llegó siguiente tecla
-            if timer:
-                timer.cancel()
-                timer = None
+    if key == Key.shift or key == Key.shift_r or key == Key.shift_l:
+        shift_pressed = True
+        return
 
-            listening = False
-            char = event.name
+    try:
+        char = key.char
+    except AttributeError:
+        return
 
-            if len(char) == 1:
-                if char == "'":
-                    # Si la siguiente es ', dejamos el ' original y escribimos otra '
-                    # Como ya pusimos el primero, solo escribimos el segundo
-                    write_text("'")
-                elif char in accent_map:
-                    # Borra el ' escrito y escribe la vocal con tilde o ñ
-                    backspace()
-                    write_text(accent_map[char])
-                else:
-                    # No es vocal ni n, dejamos ' y escribimos char normal
-                    write_text(char)
-            else:
-                # Para teclas especiales, dejamos ' y escribimos tecla normal
-                write_text(char)
+    # Considera estado de mayúsculas
+    if char.isalpha():
+        capslock = is_capslock_on()
+        if capslock ^ shift_pressed:
+            char = char.upper()
+        else:
+            char = char.lower()
 
-            return False  # Bloquear esta tecla original porque la escribimos manual
+    buffer.append(char)
+    if len(buffer) > 2:
+        buffer.pop(0)
 
-        if event.name == "'":
-            # Pulsamos ', escribimos ' y esperamos la siguiente tecla
-            write_text("'")
-            listening = True
-            timer = threading.Timer(0.5, timeout_no_next_char)
-            timer.start()
-            return False  # Bloquear el ' original porque ya lo escribimos manual
+    process_buffer()
 
-keyboard.hook(on_press)
+def on_release(key):
+    global shift_pressed
+    if key == Key.shift or key == Key.shift_r or key == Key.shift_l:
+        shift_pressed = False
 
-print("Script running. Press ' followed by a character to convert.")
-print("Press ESC to exit.")
-keyboard.wait('esc')
-print("Exiting script...")
+def main():
+    with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
+        listener.join()
+
+if __name__ == "__main__":
+    main()
