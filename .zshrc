@@ -75,4 +75,5 @@ alias copy='xclip -selection clipboard'
 
 # Github
 alias co='git checkout'
-
+# Zmkstudio
+alias zmkstudio='~/.local/bin/zmk-studio.AppImage'
