@@ -1,15 +1,11 @@
 #!/bin/bash
+export PATH="/usr/bin:/bin:/usr/local/bin"
 
-# Directorio destino
 DEST="/home/odin/Downloads/DesktopEnviroment"
-
-# Fecha actual para el commit
 DATE=$(date '+%Y-%m-%d %H:%M:%S')
 
-# Asegurarse de que el destino existe
 mkdir -p "$DEST"
 
-# Copiar archivos/directorios (sincrónicamente)
 rsync -a --delete \
   /home/odin/.config/bspwm \
   /home/odin/.config/kitty \
@@ -21,10 +17,6 @@ rsync -a --delete \
   /home/odin/.zshrc \
   "$DEST"
 
-# Ir al repositorio
-cd "$DEST" || exit 1
-
-# Hacer commit y push
-git add .
-git commit -m "Backup: $DATE"
-git push
+git -C "$DEST" add .
+git -C "$DEST" commit -m "Backup: $DATE"
+git -C "$DEST" push >>/home/odin/cron_git.log 2>&1
