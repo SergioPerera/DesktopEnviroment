@@ -87,10 +87,17 @@ super + {o,i}
 	bspc node {older,newer} -f; \
 	bspc wm -h on
 
-# focus or send to the given desktop
-super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+# Focus desktop with Super + qwertyuiop
+super + {q,w,e,r,t,y,u,i,o,p}
+	bspc desktop -f '^{1,2,3,4,5,6,7,8,9,10}'
 
+# Send window to desktop with Super + Shift + qwertyuiop
+super + shift + {q,w,e,r,t,y,u,i,o,p}
+	bspc node -d '^{1,2,3,4,5,6,7,8,9,10}'
+
+# focus or send to the given desktop
+# super + {_,shift + }{1-9,0}
+# 	bspc {desktop -f,node -d} '^{1-9,10}'
 #
 # preselect
 #
@@ -130,4 +137,3 @@ super + shift + e
 # Reload python tilde script
 super + shift + t
   pkill -f "python.*/tildes.py"; \
-  #~/tilde_env/bin/python /home/odin/.config/bspwm/scripts/tildes.py &
