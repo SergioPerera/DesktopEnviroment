@@ -87,9 +87,17 @@ super + {o,i}
 	bspc node {older,newer} -f; \
 	bspc wm -h on
 
+# Cambiar al escritorio 1-10 con F1-F10
+super + {F1,F2,F3,F4,F5,F6,F7,F8,F9,F10}
+	bspc desktop -f '^{1,2,3,4,5,6,7,8,9,10}'
+
+# Enviar ventana al escritorio 1-10 con Shift + F1-F10
+super + shift + {F1,F2,F3,F4,F5,F6,F7,F8,F9,F10}
+	bspc node -d '^{1,2,3,4,5,6,7,8,9,10}'
+
 # focus or send to the given desktop
-super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+# super + {_,shift + }{1-9,0}
+# 	bspc {desktop -f,node -d} '^{1-9,10}'
 
 # preselect
 #
