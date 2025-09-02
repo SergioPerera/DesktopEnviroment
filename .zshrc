@@ -77,3 +77,5 @@ alias copy='xclip -selection clipboard'
 alias co='git checkout'
 # Zmkstudio
 alias zmkstudio='~/.local/bin/zmk-studio.AppImage'
+# Clear podman
+alias podmanclean='podman rm -af && podman pod rm -af && podman rmi -af && podman volume rm -a && podman system prune -a -f'
