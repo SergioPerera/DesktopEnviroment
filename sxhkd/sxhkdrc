@@ -1,4 +1,3 @@
-
 #
 # wm independent hotkeys
 #
@@ -7,7 +6,7 @@
 super + Return
 	/opt/kitty/bin/kitty
 
-# Launch chromium
+# Launch vsc
 super + shift + c 
   /usr/bin/chromium
 
@@ -26,12 +25,14 @@ super + Escape
 # bspwm hotkeys
 #
 
-# quit/restart bspwm  (remapeado para evitar colisión con escritorios)
-super + ctrl + shift + {q,r}
-	bspc {quit,wm -r}
+# quit/restart bspwm (moved to avoid collision with desktops)
+super + ctrl + shift + q
+	bspc quit
+super + ctrl + shift + r
+	bspc wm -r
 
-# close and kill  (remapeado para evitar colisión con escritorios)
-super + shift + w
+# close and kill (moved to avoid collision with desktops)
+super + ctrl + w
 	bspc node -c
 super + ctrl + shift + w
 	bspc node -k
@@ -52,8 +53,8 @@ super + g
 # state/flags
 #
 
-# set the window state  (remapeado t / shift+t para evitar colisión con escritorios)
-super + shift + t
+# set the window state (t bindings moved to avoid collision with desktops)
+super + ctrl + t
 	bspc node -t tiled
 super + ctrl + shift + t
 	bspc node -t pseudo_tiled
@@ -97,16 +98,18 @@ super + {o,i}
 	bspc wm -h on
 
 #
-# Escritorios (reemplaza lo anterior)
+# desktops (5) via q w e r t
 #
 
-# Cambiar a escritorios 1–5 con super + qwert
+# change to desktop 1..5
 super + {q,w,e,r,t}
-  bspc desktop -f '^{1,2,3,4,5}'
+	bspc desktop -f '^{1,2,3,4,5}'
 
-# Enviar ventana a escritorios 1–5 con super + shift + qwert
+# send focused node to desktop 1..5
 super + shift + {q,w,e,r,t}
-  bspc node -d '^{1,2,3,4,5}'
+	bspc node -d '^{1,2,3,4,5}'
+
+# (Removed old F1–F10 desktop binds and numeric examples)
 
 #
 # preselect
@@ -140,10 +143,10 @@ super + shift + {Left,Down,Up,Right}
 super + alt + {h,j,k,l}
   ~/.config/bspwm/scripts/bspwm_resize {west,south,north,east}
 
-# Open Explorer  (remapeado para evitar colisión con shift+e de escritorios)
+# Open Explorer (moved to avoid collision with desktops)
 super + ctrl + shift + e
   /usr/bin/caja
 
-# Reload python tilde script  (remapeado; nota: coincide con pseudo_tiled si no cambias uno)
-super + ctrl + alt + shift + t
-  pkill -f "python.*/tildes.py"; \
+# Reload python tilde script (moved to avoid collision with desktops)
+super + ctrl + alt + t
+  pkill -f "python.*/tildes.py"
