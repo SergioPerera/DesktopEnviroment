@@ -1,3 +1,4 @@
+
 #
 # wm independent hotkeys
 #
@@ -6,7 +7,7 @@
 super + Return
 	/opt/kitty/bin/kitty
 
-# Launch vsc
+# Launch chromium
 super + shift + c 
   /usr/bin/chromium
 
@@ -25,13 +26,15 @@ super + Escape
 # bspwm hotkeys
 #
 
-# quit/restart bspwm
-super + shift + {q,r}
+# quit/restart bspwm  (remapeado para evitar colisión con escritorios)
+super + ctrl + shift + {q,r}
 	bspc {quit,wm -r}
 
-# close and kill
-super + {_,shift + }w
-	bspc node -{c,k}
+# close and kill  (remapeado para evitar colisión con escritorios)
+super + shift + w
+	bspc node -c
+super + ctrl + shift + w
+	bspc node -k
 
 # alternate between the tiled and monocle layout
 super + m
@@ -49,9 +52,15 @@ super + g
 # state/flags
 #
 
-# set the window state
-super + {t,shift + t,s,f}
-	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+# set the window state  (remapeado t / shift+t para evitar colisión con escritorios)
+super + shift + t
+	bspc node -t tiled
+super + ctrl + shift + t
+	bspc node -t pseudo_tiled
+super + s
+	bspc node -t floating
+super + f
+	bspc node -t fullscreen
 
 # set the node flags
 super + ctrl + {m,x,y,z}
@@ -87,18 +96,19 @@ super + {o,i}
 	bspc node {older,newer} -f; \
 	bspc wm -h on
 
-# Cambiar al escritorio 1-10 con F1-F10
-super + {F1,F2,F3,F4,F5,F6,F7,F8,F9,F10}
-	bspc desktop -f '^{1,2,3,4,5,6,7,8,9,10}'
+#
+# Escritorios (reemplaza lo anterior)
+#
 
-# Enviar ventana al escritorio 1-10 con Shift + F1-F10
-super + shift + {F1,F2,F3,F4,F5,F6,F7,F8,F9,F10}
-	bspc node -d '^{1,2,3,4,5,6,7,8,9,10}'
+# Cambiar a escritorios 1–5 con super + qwert
+super + {q,w,e,r,t}
+  bspc desktop -f '^{1,2,3,4,5}'
 
-# focus or send to the given desktop
-# super + {_,shift + }{1-9,0}
-# 	bspc {desktop -f,node -d} '^{1-9,10}'
+# Enviar ventana a escritorios 1–5 con super + shift + qwert
+super + shift + {q,w,e,r,t}
+  bspc node -d '^{1,2,3,4,5}'
 
+#
 # preselect
 #
 
@@ -130,10 +140,10 @@ super + shift + {Left,Down,Up,Right}
 super + alt + {h,j,k,l}
   ~/.config/bspwm/scripts/bspwm_resize {west,south,north,east}
 
-# Open Explorer
-super + shift + e
+# Open Explorer  (remapeado para evitar colisión con shift+e de escritorios)
+super + ctrl + shift + e
   /usr/bin/caja
 
-# Reload python tilde script
-super + shift + t
+# Reload python tilde script  (remapeado; nota: coincide con pseudo_tiled si no cambias uno)
+super + ctrl + alt + shift + t
   pkill -f "python.*/tildes.py"; \
