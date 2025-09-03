@@ -150,3 +150,6 @@ super + ctrl + shift + e
 # Reload python tilde script (moved to avoid collision with desktops)
 super + ctrl + alt + t
   pkill -f "python.*/tildes.py"
+# Player management
+XF86AudioPlay
+	playerctl play-pause
