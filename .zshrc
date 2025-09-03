@@ -79,3 +79,11 @@ alias co='git checkout'
 alias zmkstudio='~/.local/bin/zmk-studio.AppImage'
 # Clear podman
 alias podmanclean='podman rm -af && podman pod rm -af && podman rmi -af && podman volume rm -a && podman system prune -a -f'
+# Clear docker
+alias dockerclean='docker stop $(docker ps -aq) 2>/dev/null || true && \
+docker rm -f $(docker ps -aq) 2>/dev/null || true && \
+docker rmi -f $(docker images -aq) 2>/dev/null || true && \
+docker volume rm $(docker volume ls -q) 2>/dev/null || true && \
+docker network rm $(docker network ls -q) 2>/dev/null || true && \
+docker system prune -a --volumes -f'
+
