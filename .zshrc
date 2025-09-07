@@ -88,3 +88,6 @@ docker network rm $(docker network ls -q) 2>/dev/null || true && \
 docker system prune -a --volumes -f'
 # grep
 alias grep='grep --color=auto'
+
+# Created by `pipx` on 2025-09-07 20:41:25
+export PATH="$PATH:/home/odin/.local/bin"
