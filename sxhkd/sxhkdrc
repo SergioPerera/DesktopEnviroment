@@ -147,7 +147,7 @@ super + shift + e
 
 # Reload python tilde script
 super + shift + t
-  pkill -f "python.*/tildes.py"; \
+  pkill -f "python.*/tildes.py";
 
 # Player management
 XF86AudioPlay
