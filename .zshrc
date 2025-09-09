@@ -30,6 +30,9 @@ fi
 
 export PATH=/opt/kitty/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/opt/nvim/nvim-linux64/bin
 
+# Fix java problem
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 # History 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
@@ -91,5 +94,3 @@ alias grep='grep --color=auto'
 # Created by `pipx` on 2025-09-07 20:41:25
 export PATH="$PATH:/home/odin/.local/bin"
 
-# Fix java problem
-export _JAVA_AWT_WM_NONREPARENTING=1
