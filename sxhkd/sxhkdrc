@@ -94,7 +94,7 @@ super + {u,i,o,p,BackSpace}
   bspc desktop -f '^{1,2,3,4,5}'
 
 # Send focused window to desktops 1–5 with Super+Shift+u i o p Backspace
-super + shift + {u,i,o,p,BackSpace}
+super + shift + {y,u,i,o,p}
   bspc node -d '^{1,2,3,4,5}'
 
 # Cambiar al escritorio 1-10 con F1-F10
