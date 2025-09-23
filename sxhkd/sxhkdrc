@@ -90,7 +90,7 @@ super + {grave,Tab}
 # 	bspc wm -h on
 
 # Switch to desktops 1–5 with Super+u i o p Backspace
-super + {u,i,o,p,BackSpace}
+super + {y,u,i,o,p}
   bspc desktop -f '^{1,2,3,4,5}'
 
 # Send focused window to desktops 1–5 with Super+Shift+u i o p Backspace
