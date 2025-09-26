@@ -152,3 +152,7 @@ super + shift + t
 # Player management
 XF86AudioPlay
 	playerctl play-pause
+
+# Flameshot
+super + shift + s
+  /usr/bin/flameshot gui
