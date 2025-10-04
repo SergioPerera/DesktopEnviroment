@@ -94,3 +94,5 @@ alias grep='grep --color=auto'
 # Created by `pipx` on 2025-09-07 20:41:25
 export PATH="$PATH:/home/odin/.local/bin"
 
+#Tildes
+alias tilde= '~/tilde_env/bin/python /home/odin/.config/bspwm/scripts/tildes.py & disown'
