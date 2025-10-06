@@ -156,3 +156,7 @@ XF86AudioPlay
 # Flameshot
 super + shift + s
   /usr/bin/flameshot gui
+
+#Burpsuite
+super + shift + b
+  /usr/bin/burpsuite
