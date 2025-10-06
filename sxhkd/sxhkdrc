@@ -159,4 +159,4 @@ super + shift + s
 
 #Burpsuite
 super + shift + b
-  /usr/bin/burpsuite & disown
+  /bin/burpsuite_full_screen.sh
