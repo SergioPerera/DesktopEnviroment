@@ -1,5 +1,6 @@
 #! /bin/sh
 
+setxkbmap -layout us -variant altgr-intl &
 pgrep -x sxhkd >/dev/null || sxhkd &
 
 bspc monitor -d I II III IV V
@@ -24,4 +25,3 @@ bspc config focused_border_color "#84c0fc"
 bspc config border_width 3
 bspc config border_radius 0
 bash ~/.config/polybar/launch.sh --forest
-setxkbmap -layout us -variant altgr-intl
