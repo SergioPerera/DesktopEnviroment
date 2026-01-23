@@ -96,3 +96,4 @@ export PATH="$PATH:/home/odin/.local/bin"
 
 #Tildes
 alias tilde= '~/tilde_env/bin/python /home/odin/.config/bspwm/scripts/tildes.py & disown'
+export PATH="$HOME/.fzf/bin:$PATH"
