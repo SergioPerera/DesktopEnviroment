@@ -2,9 +2,12 @@ return {
   {
     "iamcco/markdown-preview.nvim",
     ft = { "markdown" },
-    build = function()
-      vim.fn["mkdp#util#install"]()
-    end,
+
+    -- Linux:
+    build = "cd app && npm install",
+    -- Windows (si el de arriba no va, comenta el de Linux y usa este):
+    -- build = "cd app && npm.cmd install",
+
     config = function()
       -- Usa Chromium
       vim.g.mkdp_browser = "chromium"
