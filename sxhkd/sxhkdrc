@@ -160,3 +160,12 @@ super + shift + s
 #Burpsuite
 super + shift + b
   /bin/burpsuite_full_screen.sh
+
+#Volume encoder
+# Subir volumen (rotary clockwise)
+XF86AudioRaiseVolume
+    pactl set-sink-volume @DEFAULT_SINK@ +3%
+
+# Bajar volumen (rotary counter-clockwise)
+XF86AudioLowerVolume
+    pactl set-sink-volume @DEFAULT_SINK@ -3%
